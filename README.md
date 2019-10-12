@@ -110,6 +110,17 @@ Both share the same schema, some rows will have missing values in the no_match f
 | article_quality | An appoximation of article quality given by the ORES api learn more [here](https://github.com/wikimedia/ores) | string    |
 | population      | Population in millions (thousands are comma separated)                                                        | string    |
 
+## How to run the notebook
+
+You will need a computer with access to the internet and access to a command line which has the required previledges to install open-source software.
+
+1. Install [conda or miniconda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/).
+2. [Replicate the conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file) using the human.yml file provided by running: `conda env create -f human.yml`
+3. Activate the environment with: `conda activate human`
+4. Using a terminal or cmd, navigate to the src folder.
+5. Lauch jupyter by running: `jupyter notebook`
+6. Select the hcds-a1-data-curation notebook.
+
 ## Observations
 
 ### Coverage
@@ -144,11 +155,11 @@ This may be due to having a large number of english native speakers.
 
 ## Reflection
 
-1. What biases did you expect to find in the data (before you started working with it), and why?
+**1. What biases did you expect to find in the data (before you started working with it), and why?**
 
 Before starting the work, I thought article quality would reflect writting quality, but also content quality. As a result, I expected countries that live under political regimes prone to censorship to have worse article quality and a limited quantity of articles. I also expected english speaking countries to have better article quality by a significant margin due to having a larger number of editor's whose native language is english. I intuitively thought that, at least for countries whose official language list include english, population and coverage would be fairly proportional.
 
-2. What (potential) sources of bias did you discover in the course of your data processing and analysis?
+**2. What (potential) sources of bias did you discover in the course of your data processing and analysis?**
 
 The evaluation for article quality doesn't really evaluate what the documentation calls 'tone':
 
@@ -162,7 +173,7 @@ The number of politicians in a country is not proportional to a country's popula
 
 The dataset does not include any information about the editors of the articles. Having no information about the editors makes it so that we cannot make inference about the intent and or the validity of the articles. It would have been interesting to try to use data about the editors to account for potential bias. (Age group, Gender editing pages of same/different gender, countries editing pages from other countries etc.)
 
-4. What might your results suggest about the internet and global society in general?
+**4. What might your results suggest about the internet and global society in general?**
 
 It is very tempting to draw intuitive (even prejudicial) conclusions from a dataset before taking a look at the data and its source. Sources of bias in anything human centered are multiple and seem to be difficult to account for. The Internet is an inherently biased source of data (notably, because access to the Internet is required to be part of the conversation).
 
