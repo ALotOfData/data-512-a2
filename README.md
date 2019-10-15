@@ -5,13 +5,13 @@ Name: Benjamin Brodeur Mathieu
 Date: 10/12/2019
 
 ## Goal
-The goal of this assignment is to reflect on sources of bias by analyzing coverage and relative article quality by country and geographical regions of politicians articles taken from the English Wikipedia.
+The goal of this assignment is to reflect on sources of bias in large data science projects by analyzing coverage and relative article quality by country and geographical regions of politicians articles taken from the English Wikipedia.
 
 To do this we will be generating tables showing:
 
-1. the countries with the greatest and least coverage of politicians on Wikipedia compared to their population.
-2. the countries with the highest and lowest proportion of high quality articles about politicians.
-3. a ranking of geographic regions by articles-per-person and proportion of high quality articles.
+1. The countries with the greatest and least coverage of politicians on Wikipedia compared to their population.
+2. The countries with the highest and lowest proportion of high quality articles about politicians.
+3. A ranking of geographic regions by articles-per-person and proportion of high quality articles.
 
 ## Repository structure
 ```
@@ -36,7 +36,7 @@ To do this we will be generating tables showing:
 | File                                          | Description                                                                                                              |
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | LICENSE                                       | Code license                                                                                                             |
-| README.md                                     | This readme                                                                                                              |
+| README.md                                     | This readme.                                                                                                              |
 | artifacts/data/ores_not_found.csv             | Entries in our dataset for which there were no article quality given by the [ORES](https://www.mediawiki.org/wiki/ORES). |
 | artifacts/images/coverage.png                 | Coverage table screenshot. The table was created as part of analysis.                                                    |
 | artifacts/images/relative_quality.png         | Relative article quality table screenshot. The table was created as part of the analysis.                                |
@@ -66,13 +66,13 @@ The descriptions in this table were taken from the link above.
    * Released under CC-BY-SA 4.0 license
 
 2. [Population resource bureau, mid-2018 population by country](https://www.prb.org/international/indicator/population/table/)
-   * Dataset was given by the class' website.
 
 | Column                         | Description                                                                            | Data type |
 | ------------------------------ | -------------------------------------------------------------------------------------- | --------- |
 | Geography                      | ALL CAPS entries are regions, other values are countries                               | string    |
 | Population mid-2018 (millions) | Floating number representing the population in millions, thousands are comma separated | string    |
 
+   * Dataset was given by the class' website.
    * The website did not explicitely state its license.
 
 ## Bias
@@ -84,7 +84,7 @@ The descriptions in this table were taken from the link above.
 
 ## Resources used
 This analysis was prepared using Python 3.7 running in a Jupyter Notebook environment.  
-Documentation for Python can be found here: https://docs.python.org/3.5/  
+Documentation for Python can be found here: https://docs.python.org/3.7/  
 Documentation for Jupyter Notebook can be found here: http://jupyter-notebook.readthedocs.io/en/latest/  
 
 The following Python packages were used and their documentation can be found at the accompanying links:
@@ -112,14 +112,16 @@ Both share the same schema, some rows will have missing values in the no_match f
 
 ## How to run the notebook
 
-You will need a computer with access to the internet and access to a command line which has the required previledges to install open-source software.
+You will need a computer with access to the internet and access to a command line which has the required privileges to install open-source software.
+
+> The human.yml file was created on OSX and will not work on linux or windows. If you are not on OSX, install the dependencies manually.
 
 1. Install [conda or miniconda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/).
 2. [Replicate the conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file) using the human.yml file provided by running: `conda env create -f human.yml`
 3. Activate the environment with: `conda activate human`
 4. Using a terminal or cmd, navigate to the src folder.
 5. Lauch jupyter by running: `jupyter notebook`
-6. Select the hcds-a1-data-curation notebook.
+6. Select the hcds-a2-data-curation notebook.
 
 ## Observations
 
@@ -127,31 +129,26 @@ You will need a computer with access to the internet and access to a command lin
 
 ![Image of three tables summarizing coverage or politicians articles per country and region](./artifacts/images/coverage.png)
 
-We notice that the countries with the top 10 coverage all have fairly small populations. This is expected as it is difficult to obtain high coverage in densely populated countries. This is reflected in the bottom 10 table which all have populations over 30 million.
+We notice that the countries in the "top 10 coverage" table all have fairly small populations. This is expected as having a good coverage in countries with bigger populations would require a significant amount of articles. This is reflected in the bottom 10 table which all have populations over 30 million.
 
-Both country table's countries official languages are not english. This is interesting given that articles where fetch from the English version of wikipedia. A hypothesis which could have been formulated before looking at the data is: Countries whose official language include english would have good coverage.
+Both the "top 10" and "bottom 10" countries official languages are not english. This is interesting given that articles were fetch from the English Wikipedia.
 
-Coverage is calculated by counting the number of articles about politicians over a countrie's population. This does not take into account the historical context of the countries nor their political systems. Some countries may have much richer history records, political systems that involve more people etc.
+Coverage is calculated by counting the number of articles about politicians over a country's population. This does not take into account the historical context of the country nor their political system(s). Some countries may have much richer history records, political systems that involve more people etc.
 
 In the region table we can see some of the observations above come into play:
 
 - The population count seems to vaguely dictate the overall order
-- Northern america has a small number of articles for its population, but may also have the shortest reported historical period.
+- Northern America has a small number of articles for its population, but may also have some of the shortest reported historical period.
 - Many other factors such as the distribution of wikipedia's english countries could explain some of the discrepancies between regions.
 
 ### Relative article quality
 
 ![Image of three tables summarizing relative article quality for politicians articles per country and region](./artifacts/images/relative_quality.png)
 
-Looking at the dataset more closely, we can see that more than 10 countries have no articles about a politician which obtained a quality rating of "FA" or "GA".
-
-Having very few articles makes it easy to increase the relative_quality rating for a given country.
-
-Many of the countries having poor relative quality ratings also have a few number of articles.
-
-When looking at the region table, we see that the Northern America has the highest relative quality rating.
-This may be due to having a large number of english native speakers.
-
+* Looking at the dataset more closely, we can see that more than 10 countries have no articles about a politician which obtained a quality rating of "FA" or "GA".
+* Having very few articles makes it easy for a contributor to go and increase the relative_quality rating for a given country.
+* Many of the countries having poor relative quality ratings also have a few number of articles.
+* When looking at the region table, we see that the Northern America has the highest relative quality rating. This may be due to having a large number of english native speakers.
 
 ## Reflection
 
@@ -165,7 +162,7 @@ The evaluation for article quality doesn't really evaluate what the documentatio
 
 The metrics of evaluation for article quality on wikipedia is derived by:
 
-"The articlequality model bases its predictions on structural characteristics of the article. E.g. How many sections are there? Is there an infobox? How many references? And do the references use a {{cite}} template? The articlequality model doesn't evaluate the quality of the writing or whether or not there's a tone problem (e.g. a point of view being pushed). However, many of the structural characteristics of articles seem to correlate strongly with good writing and tone, so the models work very well in practice." -Ores documentation
+>_"The articlequality model bases its predictions on structural characteristics of the article. E.g. How many sections are there? Is there an infobox? How many references? And do the references use a {{cite}} template? The articlequality model doesn't evaluate the quality of the writing or whether or not there's a tone problem (e.g. a point of view being pushed). However, many of the structural characteristics of articles seem to correlate strongly with good writing and tone, so the models work very well in practice."_ -Ores documentation
 
 We also have very few information regarding how the model concretely does this evaluation. The code is at least made available for further exploration.
 
@@ -177,6 +174,4 @@ The dataset does not include any information about the editors of the articles. 
 
 It is very tempting to draw intuitive (even prejudicial) conclusions from a dataset before taking a look at the data and its source. Sources of bias in anything human centered are multiple and seem to be difficult to account for. The Internet is an inherently biased source of data (notably, because access to the Internet is required to be part of the conversation).
 
-Given these observations, it is interesting to think that there seem to remain an inherent (naive) trust in the democratic process of sharing opinions and information online. The current generation is already feeling the repercussions of exercising trust in largely unmonitored information sources.
-
-
+Given these observations, it is interesting to think that there seems to remain an inherent (naive) trust in the democratic process of sharing opinions and information online. The current generation is already feeling the repercussions of exercising trust in largely unmonitored information sources.
