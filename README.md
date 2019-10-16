@@ -24,7 +24,7 @@ To do this we will be generating tables showing:
 │       ├── coverage.png
 │       └── relative_quality.png
 ├── clean_data
-│   ├── wp_wpds_countries-no_match.csv
+│   ├── wp_wpds_countries_no_match.csv
 │   └── wp_wpds_politicians_by_country.csv
 ├── human.yml
 ├── raw_data
